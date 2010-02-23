@@ -1,0 +1,9 @@
+# -lrt flag needed for Linux
+compile_flags = ['-ansi', '-Wall', '-pedantic', '-lrt']
+c89_flags = compile_flags + ['-std=c89']
+#c99_flags = compile_flags + ['-std=c99']
+
+env = Environment()
+
+# Build wrapper
+env.Object(source = ['src/nanotime_wrapper.c'], CCFLAGS = c89_flags)
